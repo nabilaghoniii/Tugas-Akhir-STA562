@@ -50,7 +50,7 @@ weather <- weather %>% mutate(
 
 
 # INSERT DATA
-connection_string <- 'mongodb+srv://nabilaghoni:shiefila@cluster0.vvsc3.mongodb.net/sample_training'
+connection_string <- Sys.getenv("MONGODB_URI")
 
 random_collection <- mongo(collection = "weather", 
                            db = "sample_dataset_R", 
