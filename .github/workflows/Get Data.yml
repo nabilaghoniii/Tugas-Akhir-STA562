@@ -1,0 +1,25 @@
+name: Get Data
+
+on: 
+  schedule:
+    -  cron: '0,10,20,30,40,50 * * * 1-7' 
+
+jobs:
+  downloading-data:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@master
+      - name: Install httr package
+        run: Rscript -e 'install.packages("httr", dependencies = TRUE)'
+      - name: Install dplyr package
+        run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'
+      - name: Install mongolite package
+        run: Rscript -e 'install.packages("mongolite", dependencies = TRUE)'
+      - run: 'echo "$SSH_KEY" > key'
+        shell: bash
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      - name: Run The R Script
+        run: Rscript "Get Data.R"
+        
