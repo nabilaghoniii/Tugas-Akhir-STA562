@@ -1,8 +1,8 @@
 name: Posting
 
 on: 
-  schedule:
-    -  cron: '*/10 * * * *' 
+ # schedule:
+ #   -  cron: '*/10 * * * *' 
 
 jobs:
   publish-data:
