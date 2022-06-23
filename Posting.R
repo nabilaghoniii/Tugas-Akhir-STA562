@@ -25,10 +25,10 @@ post2 <- paste0(
 
 twitter_token <- rtweet::create_token(
   app = "jualrumahbgr",
-  consumer_key = "Udq3MY27jManyzArQCBbCrbQk", 
-  consumer_secret = "otSYGQ5lnRPWjfnJjNO83ICG1achYHT6vdY9636DGZCVqj2n2T", 
-  access_token = "1533857672738373637-htNa4lslH9VUtgd31dV7Ssr1REfIZS",
-  access_secret = "c7wQRrX75AvFQX8ABjkRPiIRrNjyqDEw27HVEWSAMXBMe"
+  consumer_key = Sys.getenv("TWITTER_CONSUMER_API_KEY"), 
+  consumer_secret = Sys.getenv("TWITTER_CONSUMER_API_SECRET"),
+  access_token = Sys.getenv("TWITTER_ACCESS_TOKEN"),
+  access_secret = Sys.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 )
 
 rtweet::post_tweet(
