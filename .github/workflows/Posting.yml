@@ -2,7 +2,7 @@ name: Posting
 
 on: 
   schedule:
-    -  cron: '0 8,13,19 * * *' 
+    -  cron: '30 22 * * *' 
 
 jobs:
   publish-data:
