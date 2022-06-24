@@ -15,7 +15,7 @@ post1 <- paste0(
   "Hello, good people. How's your day? Its time to take a look at today's weather! As we normally do, we would like to inform you current weather in few cities all around the world. Hang on a second..", 
   "\n",
   "\n",
-  "2022-06-24 23:22:45",
+  Sys.time(),
   "\n",
   "#", hashtag
 )
@@ -29,7 +29,7 @@ post2 <- paste0(
   upload$city[[1]], " (", upload$time[[1]], ") 🌡", upload$temperature[[1]], "°C  💨 ", upload$wind_speed[[1]], " km/h", "\n",
   "\n",
   "\n",
-  "2022-06-24 23:22:45",
+  Sys.time(),
   "\n",
   "#", hashtag
 )
