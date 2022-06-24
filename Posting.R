@@ -9,7 +9,7 @@ random_collection <- mongo(collection = "weather",
 
 # POST TWITTER
 upload <- random_collection$find(sort='{"_id":-1}', limit=6)
-hashtag <- "weather"
+hashtag <- Sys.Date()
 
 post1 <- paste0(
   "Hello, good people. How's your day? Its time to take a look at today's weather! As we normally do, we would like to inform you current weather in few cities all around the world. Hang on a second..", 
