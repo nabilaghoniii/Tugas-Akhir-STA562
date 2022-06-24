@@ -7,6 +7,8 @@ on:
 jobs:
   downloading-data:
     runs-on: macOS-latest
+    env:
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@master
@@ -16,10 +18,6 @@ jobs:
         run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'
       - name: Install mongolite package
         run: Rscript -e 'install.packages("mongolite", dependencies = TRUE)'
-      - run: 'echo "$SSH_KEY" > key'
-        shell: bash
-        env:
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
       - name: Run The R Script
         run: Rscript "Get Data.R"
         
