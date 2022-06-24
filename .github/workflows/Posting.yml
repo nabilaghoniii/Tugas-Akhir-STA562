@@ -6,7 +6,7 @@ on:
 
 jobs:
   publish-data:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     env:
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
       TWITTER_CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
