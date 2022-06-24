@@ -2,11 +2,11 @@ name: Posting
 
 on: 
   schedule:
-    -  cron: '0 * * * *' 
+    -  cron: '25 * * * *' 
 
 jobs:
   publish-data:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     env:
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
       TWITTER_CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
