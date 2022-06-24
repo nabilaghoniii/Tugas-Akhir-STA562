@@ -1,4 +1,11 @@
 library(rtweet)
+library(mongolite)
+
+connection_string <- Sys.getenv("MONGODB_URI")
+random_collection <- mongo(collection = "weather", 
+                           db = "sample_dataset_R", 
+                           url = connection_string, 
+                           verbose = TRUE)
 
 # POST TWITTER
 upload <- random_collection$find(sort='{"_id":-1}', limit=6)
