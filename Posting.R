@@ -10,12 +10,14 @@ random_collection <- mongo(collection = "weather",
 # POST TWITTER
 upload <- random_collection$find(sort='{"_id":-1}', limit=6)
 hashtag <- "weather"
+time_UTC <- Sys.time()
+time_JKT <- as.POSIXct(time_UTC, tz = "Asia/Bangkok")
 
 post1 <- paste0(
   "Hello, good people. How's your day? Its time to take a look at today's weather! As we normally do, we would like to inform you current weather in few cities all around the world. Hang on a second..", 
   "\n",
   "\n",
-  Sys.time(),
+  time_JKT,
   "\n",
   "#", hashtag
 )
@@ -29,7 +31,7 @@ post2 <- paste0(
   upload$city[[1]], " (", upload$time[[1]], ") 🌡", upload$temperature[[1]], "°C  💨 ", upload$wind_speed[[1]], " km/h", "\n",
   "\n",
   "\n",
-  Sys.time(),
+  time_JKT,
   "\n",
   "#", hashtag
 )
